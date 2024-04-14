@@ -26,6 +26,15 @@ public class StarPattern {
         System.out.println();
         System.out.println("------- Pattern 28 diamond ----------");
         pattern28(10);
+
+
+        System.out.println();
+        System.out.println("------- Pattern 17 diamond ----------");
+        pattern17(5);
+
+        System.out.println();
+        System.out.println("------- Pattern 38 diamond ----------");
+        pattern38(4);
     }
 
     static void patter1(int n) {
@@ -111,6 +120,42 @@ public class StarPattern {
             System.out.println();
         }
 
+    }
+
+    static void pattern17(int n) {
+
+        for (int row = 1; row <= 2 * n; row++) {
+
+            int c = row > n ? 2 * n - row: row;
+
+            for (int space = 0; space < n-c; space++) {
+                System.out.print("  ");
+            }
+
+            for (int col = c; col >= 1 ; col--) {
+                System.out.print(col + " ");
+            }
+
+            for (int col = 2; col <=c; col++) {
+                System.out.print(col + " ");
+            }
+
+            System.out.println();
+        }
+    }
+
+    static void pattern38(int n) {
+        int originalNumber = n;
+        n = 2*n-2;
+        for (int row = 0; row <= n; row++) {
+
+            for (int col = 0; col <= n; col++) {
+                int printNum = originalNumber - Math.min(Math.min(col, row), Math.min(n-col, n-row));
+                System.out.print(printNum+ " ");
+            }
+            System.out.println();
+
+        }
     }
 }
 
