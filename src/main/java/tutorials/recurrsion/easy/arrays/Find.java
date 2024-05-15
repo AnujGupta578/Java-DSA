@@ -19,7 +19,9 @@ public class Find {
         System.out.println(list);
 
 //        findAllIndexByPassList(arr2, 7, 0, list1);
-        System.out.println(findAllIndexByPassList(arr2, 7, 0, new ArrayList<>()));
+//        System.out.println(findAllIndexByPassList(arr2, 7, 0, new ArrayList<>()));
+
+        System.out.println(findAllIndexNotByPassList(arr2, 7, 0));
 
     }
 
@@ -84,6 +86,8 @@ public class Find {
         if(arr[index] == target ) {
             list.add(index);
         }
-        return findAllIndexNotByPassList(arr, target, index +1);
+        ArrayList<Integer> ansFromBelowCalls = findAllIndexNotByPassList(arr, target, index +1);
+        list.addAll(ansFromBelowCalls);
+        return list;
     }
 }
