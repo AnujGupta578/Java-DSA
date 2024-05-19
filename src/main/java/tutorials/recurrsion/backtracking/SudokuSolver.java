@@ -40,7 +40,7 @@ public class SudokuSolver {
                 }
 
             }
-            //        if you found some empty element in row, then break;
+            // if you found some empty element in row, then break;
             if(emptyLeft == false) {
                 break;
             }
@@ -56,16 +56,14 @@ public class SudokuSolver {
             if (isSafe(board, row, col, number)) {
                 board[row][col]= number;
                 if(solve(board)) {
-
                     return true;
                 } else {
-//                    backtrack
+//                backtrack
                     board[row][col]= 0;
                 }
             }
-
         }
-        return true;
+        return false;
     }
 
     private static void display(int[][] board) {
@@ -86,15 +84,7 @@ public class SudokuSolver {
             }
             
         }
-//        //        check the col
-//        for (int i = 0; i < board.length; i++) {
-////            check if the number is in the col
-//            if(board[row][col] == num) {
-//                return false;
-//            }
-//
-//        }
-
+//        check for col
         for (int[] nums: board ) {
             if(nums[col] == num) {
                 return false;
